@@ -57,11 +57,13 @@
 
     @recordingEnabled = true
 
-  startRecording: ->
+  startRecording: (callback) ->
     @recording = true
 
     @analyser = @audio_context.createAnalyser()
     @recorder && @recorder.record()
+    if typeof callback == 'function'
+      callback()
     console.log('Recording...') if @debug
 
   stopRecording: ->

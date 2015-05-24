@@ -55,8 +55,9 @@
       console.log 'closing'
 
     startRecording: ->
-      RecorderControls.startRecording()
-      $('.lesson_element').addClass('recording')
+      RecorderControls.startRecording( ->
+        $('.lesson_element').addClass('recording')
+      )
 
     stopRecording: ->
       RecorderControls.stopRecording()
